@@ -26,7 +26,11 @@ class DigitalTwinInteractionAgent:
         intelligence_service: IntelligenceService,
         history_limit: int = 10,
     ) -> None:
-        if history_limit <= 0:
+        if (
+            not isinstance(history_limit, int)
+            or isinstance(history_limit, bool)
+            or history_limit <= 0
+        ):
             raise ValueError("History limit must be positive.")
 
         self._conversation_service = conversation_service
@@ -45,6 +49,7 @@ class DigitalTwinInteractionAgent:
         message: str,
         model: str,
     ) -> DigitalTwinInteractionResult:
+
         if not isinstance(message, str) or not message.strip():
             raise ValueError("User message cannot be empty.")
 
@@ -58,50 +63,60 @@ class DigitalTwinInteractionAgent:
         if conversation is None:
             raise ValueError("Conversation does not exist.")
 
-        # Retrieve previous conversation history before saving this message.
-        previous_history = self._conversation_service.get_conversation_history(
-            conversation_id
+        # ----------------------------------
+        # Retrieve Previous Conversation
+        # ----------------------------------
+
+        previous_history = (
+            self._conversation_service.get_conversation_history(
+                conversation_id
+            )
         )
 
-        # Save the user's message.
+        recent_history = previous_history[-self._history_limit:]
+
+        # ----------------------------------
+        # Save User Message
+        # ----------------------------------
+
         user_message = self._conversation_service.add_user_message(
             conversation_id,
             message.strip(),
         )
 
-        # Use only the most recent messages for conversational context.
-        recent_history = previous_history[-self._history_limit:]
+        # ----------------------------------
+        # Advanced Intelligence Integration
+        # ----------------------------------
 
-        history_context = "\n".join(
-            f"{item['role'].upper()}: {item['content']}"
-            for item in recent_history
-        )
-
-        interaction_prompt = (
-            "You are an AI Digital Twin having an ongoing conversation.\n"
-            "Use the previous conversation as context when relevant.\n"
-            "Do not repeat previous answers unnecessarily.\n\n"
-            f"Previous Conversation:\n{history_context or 'No previous messages.'}\n\n"
-            f"Current User Message:\n{message.strip()}\n\n"
-            "Respond naturally and directly to the current user message."
-        )
-
-        # Reuse Phase 2 intelligence, knowledge and memory capabilities.
-        intelligence_result = self._intelligence_service.generate_response(
-            query=interaction_prompt,
-            model=model.strip(),
+        intelligence_result = (
+            self._intelligence_service.generate_response(
+                query=message.strip(),
+                model=model.strip(),
+                conversation_history=recent_history,
+            )
         )
 
         response = intelligence_result.response
 
-        # Save the assistant's response.
-        assistant_message = self._conversation_service.add_assistant_message(
-            conversation_id,
-            response,
+        # ----------------------------------
+        # Save Assistant Response
+        # ----------------------------------
+
+        assistant_message = (
+            self._conversation_service.add_assistant_message(
+                conversation_id,
+                response,
+            )
         )
 
-        updated_history = self._conversation_service.get_conversation_history(
-            conversation_id
+        # ----------------------------------
+        # Retrieve Updated Conversation
+        # ----------------------------------
+
+        updated_history = (
+            self._conversation_service.get_conversation_history(
+                conversation_id
+            )
         )
 
         updated_conversation = self._conversation_service.get_conversation(

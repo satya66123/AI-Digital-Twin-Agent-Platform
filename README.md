@@ -1,978 +1,868 @@
+<p align="center">
+  <img src="assets/project_banner.png"
+       alt="AI Digital Twin Agent Platform"
+       width="100%">
+</p>
+
 # AI Digital Twin Agent Platform
 
-An AI-powered Digital Twin Agent Platform designed to build, understand, learn, remember, and interact through an evolving digital representation of an individual.
+<p align="center">
+  <strong>A Multi-Provider, Multi-Model Personalized AI Digital Twin</strong>
+</p>
 
-The platform is designed as a **multi-provider, multi-model AI system** with a SOLID, extensible architecture that can evolve from foundational knowledge ingestion into long-term memory, intelligent interaction, and advanced digital-twin capabilities.
-
----
-
-## 🚀 Project Status
-
-**Current Status: Phase 0 — COMPLETE ✅**
-
-```text
-Phase 0 → General Foundation                 ✅ COMPLETE
-Phase 1 → Knowledge Ingestion Process        ⏳ NEXT
-Phase 2 → Intelligence & Memory Process      ⏳
-Phase 3 → Digital Twin Interaction Process   ⏳
-Phase 4 → Validation & Advanced Intelligence ⏳
-```
-
-Development follows:
-
-```text
-PLAN
-  ↓
-DESIGN
-  ↓
-IMPLEMENT
-  ↓
-TEST
-  ↓
-FIX
-  ↓
-STABILIZE
-  ↓
-DOCUMENT
-  ↓
-NEXT PHASE
-```
-
-> Phase 1 development begins after the completion and review of Phase 0.
+**Version:** 1.0.0  
+**Project Status:** Development Complete  
+**Language:** Python 3.11+  
+**Frontend:** Streamlit  
+**Architecture:** Modular Layered Architecture  
+**Persistence:** JSON-based Storage
 
 ---
 
-# 🎯 Vision
+# Table of Contents
 
-The goal of this project is to create an intelligent digital representation capable of progressively understanding:
-
-* Personal knowledge
-* Documents
-* Preferences
-* Experiences
-* Communication patterns
-* Decisions
-* Memories
-* Context
-* Behavioral patterns
-* Interactions
-
-The Digital Twin will evolve through multiple stages rather than being implemented as a single monolithic AI application.
-
----
-
-# 🏗️ Architecture
-
-The platform follows a layered architecture based on **SOLID principles**, dependency inversion, interfaces, dependency injection, and replaceable infrastructure implementations.
-
-```text
-┌──────────────────────────────────────────────┐
-│              Presentation Layer              │
-│              Streamlit Application           │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▼
-┌──────────────────────────────────────────────┐
-│             Application Layer                │
-│       Services / Agents / Orchestration      │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▼
-┌──────────────────────────────────────────────┐
-│                Domain Layer                  │
-│       Entities / Interfaces / Services       │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▼
-┌──────────────────────────────────────────────┐
-│           Infrastructure Layer               │
-│ AI Providers / Clients / Storage / Adapters  │
-└──────────────────────────────────────────────┘
-```
+1. Project Overview
+2. Objectives
+3. Features
+4. Technology Stack
+5. AI Providers and Models
+6. System Architecture
+7. Project Structure
+8. Application Workflow
+9. Development Roadmap
+10. Installation and Configuration
+11. API and Service Overview
+12. Knowledge Management
+13. Memory Management
+14. Digital Twin Conversations
+15. Personalization and Intelligence
+16. Response Quality and Consistency
+17. Data Storage
+18. Testing and Validation
+19. User Guide
+20. Troubleshooting
+21. Security
+22. Project Notes and Future Enhancements
+23. Frequently Asked Questions
+24. Interview Questions and Answers
+25. Resume Highlights
+26. Contributing
+27. Code of Conduct
+28. Changelog and Release Notes
+29. Screenshots
+30. License and Author
 
 ---
 
-# 🧠 Multi-Provider AI Architecture
+# 1. Project Overview
+
+The AI Digital Twin Agent Platform is a Python-based Generative AI application designed to create an intelligent, personalized digital representation of a user.
+
+It combines knowledge ingestion, intelligent memory, contextual retrieval, multi-turn conversations, personalization, and multiple AI providers into a unified platform.
+
+The Digital Twin can use stored knowledge, memories, personal context, and conversation history to generate relevant and personalized responses.
+
+The platform follows SOLID principles, separation of concerns, dependency inversion, interface-based design, and modular architecture.
+
+# 2. Project Objectives
+
+- Build a personalized AI Digital Twin.
+- Support multiple AI providers and models.
+- Ingest and retrieve personal knowledge.
+- Maintain short-term and long-term memories.
+- Support episodic and semantic memories.
+- Maintain persistent multi-turn conversations.
+- Generate context-aware responses.
+- Personalize responses using user preferences and expertise.
+- Evaluate basic response quality and consistency.
+- Provide a modular and extensible application architecture.
+
+# 3. Features
+
+## Multi-Provider AI Integration
+- 8 AI providers.
+- 30 configured models.
+- Provider abstraction.
+- ProviderFactory.
+- Provider registration.
+- Dynamic provider and model selection.
+
+## Knowledge Management
+- PDF, DOCX, TXT, Markdown, and CSV ingestion.
+- Document extraction.
+- Text chunking.
+- Metadata handling.
+- JSON persistence.
+- Knowledge retrieval.
+
+## Memory Management
+- Short-term memory.
+- Long-term memory.
+- Episodic memory.
+- Semantic memory.
+- Memory search and retrieval.
+- Memory updates and deletion.
+- Short-term to long-term memory consolidation.
+
+## Digital Twin Interaction
+- Conversation creation.
+- Multi-turn interaction.
+- Persistent conversation history.
+- Conversation archival.
+- Conversation deletion.
+- Context-aware response generation.
+
+## Personalization
+- Personal profile context.
+- Preference awareness.
+- Expertise awareness.
+- Personalized prompt construction.
+
+## Response Evaluation
+- Empty-response detection.
+- Short-response detection.
+- Repetition detection.
+- Lexical similarity evaluation.
+- Quality scores and consistency warnings.
+
+# 4. Technology Stack
+
+| Category | Technology |
+|---|---|
+| Language | Python |
+| Version | Python 3.11+ |
+| Frontend | Streamlit |
+| AI Integration | Multiple LLM providers |
+| Local LLM | Ollama |
+| Cloud LLMs | OpenAI, Anthropic, Gemini, Mistral, Groq, Cohere, DeepSeek |
+| Persistence | JSON |
+| Testing | PyTest |
+| Version Control | Git, GitHub |
+| Architecture | Layered Architecture |
+
+# 5. AI Providers and Models
+
+The platform supports eight providers and 30 configured models.
+
+## Ollama – 9 Models
+1. qwen2.5:1.5b
+2. gemma2:2b
+3. gemma3:4b
+4. mistral:latest
+5. phi3:latest
+6. qwen3:latest
+7. llama3.1:latest
+8. llama3:8b
+9. deepseek-coder:latest
+
+Preferred default local model: `qwen2.5:1.5b`.
 
-The platform supports **8 AI providers and 30 configured models**.
+## OpenAI – 3 Models
+- gpt-5-mini
+- gpt-4o
+- gpt-4o-mini
 
-## Providers
-
-| Provider  | Models |
-| --------- | -----: |
-| Ollama    |      9 |
-| OpenAI    |      3 |
-| Anthropic |      3 |
-| Gemini    |      3 |
-| Mistral   |      3 |
-| Groq      |      3 |
-| Cohere    |      3 |
-| DeepSeek  |      3 |
-| **Total** | **30** |
+## Anthropic – 3 Models
+- claude-sonnet-4-5
+- claude-haiku-4-5
+- claude-opus-4-1
 
----
+## Gemini – 3 Models
+- gemini-3.6-flash
+- gemini-2.5-flash
+- gemini-2.5-pro
 
-# 🤖 Configured Models
+## Mistral – 3 Models
+- mistral-medium-latest
+- mistral-large-latest
+- mistral-small-latest
 
-## Ollama
+## Groq – 3 Models
+- llama-3.3-70b-versatile
+- llama-3.1-8b-instant
+- mixtral-8x7b-32768
 
-```text
-qwen2.5:1.5b
-gemma2:2b
-gemma3:4b
-mistral:latest
-phi3:latest
-qwen3:latest
-llama3.1:latest
-llama3:8b
-deepseek-coder:latest
-```
+## Cohere – 3 Models
+- command-a-03-2025
+- command-r-plus
+- command-r
 
-## OpenAI
+## DeepSeek – 3 Models
+- deepseek-chat
+- deepseek-reasoner
+- deepseek-v4-flash
 
-```text
-gpt-5-mini
-gpt-4o
-gpt-4o-mini
-```
+**Total: 8 Providers | 30 Configured Models**
 
-## Anthropic
+# 6. System Architecture
 
-```text
-claude-sonnet-4-5
-claude-haiku-4-5
-claude-opus-4-1
-```
-
-## Gemini
-
-```text
-gemini-3.6-flash
-gemini-2.5-flash
-gemini-2.5-pro
-```
-
-## Mistral
-
-```text
-mistral-medium-latest
-mistral-large-latest
-mistral-small-latest
-```
-
-## Groq
-
-```text
-llama-3.3-70b-versatile
-llama-3.1-8b-instant
-mixtral-8x7b-32768
-```
-
-## Cohere
-
-```text
-command-a-03-2025
-command-r-plus
-command-r
-```
-
-## DeepSeek
-
-```text
-deepseek-chat
-deepseek-reasoner
-deepseek-v4-flash
-```
-
----
-
-# 🔌 Provider Abstraction
-
-All AI providers implement the common domain abstraction:
-
-```python
-class AIProvider(ABC):
-
-    @property
-    @abstractmethod
-    def name(self) -> str:
-        ...
-
-    @abstractmethod
-    def generate(self, model: str, prompt: str) -> str:
-        ...
-
-    @abstractmethod
-    def get_models(self) -> list[str]:
-        ...
-```
-
-This allows application services to work with any provider without depending on provider-specific implementations.
-
----
-
-# 🏭 Provider Factory
-
-Provider creation uses a registration-based factory.
-
-```text
-Provider Name
-      ↓
-ProviderFactory
-      ↓
-Registered Provider Builder
-      ↓
-Concrete AIProvider
-```
-
-Providers can be registered without modifying the factory's internal creation logic.
-
-Example:
-
-```python
-provider_factory.register(
-    "ollama",
-    OllamaProvider,
-)
-```
-
-This supports the **Open/Closed Principle** and keeps provider creation extensible.
-
----
-
-# 💉 Dependency Injection
-
-Dependency injection is used throughout the architecture.
-
-Example:
-
-```python
-class AIService:
-
-    def __init__(self, provider: AIProvider) -> None:
-        self._provider = provider
-```
-
-The service depends on the abstraction:
-
-```text
-AIService
-   ↓
-AIProvider interface
-   ↓
-Concrete Provider
-```
-
-rather than directly depending on a specific provider.
-
-The application container coordinates dependency construction.
-
-```text
-Application
-     ↓
-ApplicationContainer
-     ├── ProviderRegistry
-     ├── ProviderFactory
-     ├── AIService
-     └── Application Services
-```
-
----
-
-# 📚 Provider Registry
-
-The provider registry maintains the configured provider and model definitions.
-
-```python
-ProviderRegistry
-    ├── get_provider()
-    ├── get_providers()
-    └── get_models()
-```
-
-The current implementation uses:
-
-```text
-InMemoryProviderRegistry
-```
-
-This keeps configuration separate from application logic and allows future registry implementations.
-
----
-
-# 🎛️ Provider & Model Selection
-
-`ProviderModelService` provides application-level access to configured providers and models.
-
-Capabilities include:
-
-```text
-Get Providers
-Get Models
-Check Provider Support
-Check Model Support
-Get Default Model
-```
-
-Example:
-
-```python
-service.get_providers()
-service.get_models("ollama")
-service.is_supported_provider("openai")
-service.is_supported_model("ollama", "qwen2.5:1.5b")
-service.get_default_model("ollama")
-```
-
----
-
-# ⚙️ Configuration
-
-Configuration is centralized in:
-
-```text
-app/config/
-```
-
-The project uses environment variables through `python-dotenv`.
-
-Sensitive API credentials are never stored in source code.
-
----
-
-# 🔐 Environment Configuration
-
-Create a local `.env` file based on:
-
-```text
-.env.example
-```
-
-Example:
-
-```env
-OLLAMA_BASE_URL=http://localhost:11434
-
-OLLAMA_TRANSLATION_MODEL=qwen2.5:1.5b
-OPENAI_TRANSLATION_MODEL=gpt-5-mini
-ANTHROPIC_TRANSLATION_MODEL=claude-sonnet-4-5
-GEMINI_TRANSLATION_MODEL=gemini-3.6-flash
-MISTRAL_TRANSLATION_MODEL=mistral-medium-latest
-GROQ_TRANSLATION_MODEL=llama-3.1-8b-instant
-COHERE_TRANSLATION_MODEL=command-a-03-2025
-DEEPSEEK_TRANSLATION_MODEL=deepseek-v4-flash
-
-DEFAULT_TRANSLATION_PROVIDER=ollama
-DEFAULT_CAPTION_LANGUAGE=en
-
-OLLAMA_TIMEOUT=120
-CLOUD_TIMEOUT=120
-```
-
-Cloud provider API keys should be supplied through environment variables.
-
-Never commit:
-
-```text
-.env
-```
-
----
-
-# 🦙 Ollama
-
-Ollama is supported as the primary local AI provider.
-
-Default Ollama configuration:
-
-```text
-Base URL:
-http://localhost:11434
-
-Default translation model:
-qwen2.5:1.5b
-```
-
-The Ollama client communicates with the local Ollama API and supports non-streaming text generation.
-
----
-
-# ☁️ Cloud Providers
-
-The platform contains provider clients for:
-
-```text
-OpenAI
-Anthropic
-Gemini
-Mistral
-Groq
-Cohere
-DeepSeek
-```
-
-Each provider has:
-
-```text
-Provider
-   ↓
-Provider Client
-   ↓
-External API
-```
-
-Provider-specific API details remain isolated inside the infrastructure layer.
-
----
-
-# 🧩 Domain Entities
-
-Phase 0 establishes the foundational domain entities:
-
-```text
-AIModel
-AIProviderConfig
-```
-
-`AIModel`:
-
-```python
-@dataclass(frozen=True)
-class AIModel:
-    provider: str
-    name: str
-```
-
-`AIProviderConfig`:
-
-```python
-@dataclass(frozen=True)
-class AIProviderConfig:
-    name: str
-    models: tuple[AIModel, ...]
-```
-
-These immutable entities provide a clean domain representation of provider/model configuration.
-
----
-
-# 🛡️ Error Handling
-
-The project defines a domain-specific exception hierarchy:
-
-```text
-DigitalTwinError
-├── ConfigurationError
-├── ProviderError
-└── ModelError
-```
-
-This allows application code to handle platform-specific failures without depending on infrastructure-specific exceptions.
-
----
-
-# 📝 Logging
-
-Centralized logging is provided through:
-
-```text
-app/core/logging.py
-```
-
-Logging includes:
-
-```text
-Timestamp
-Log Level
-Logger Name
-Message
-```
-
-Application startup and major infrastructure events can therefore be tracked consistently.
-
----
-
-# ✅ Configuration Validation
-
-The application validates the configured AI provider/model architecture during startup.
-
-Current validation verifies:
-
-```text
-Exactly 8 providers
-Exactly 30 models
-Every provider has a name
-Every provider has at least one model
-```
-
-This prevents invalid provider configuration from silently reaching the application layer.
-
----
-
-# 🖥️ Streamlit Foundation
-
-The current Streamlit interface provides the initial application shell.
-
-Current capabilities:
+The application follows a four-layer architecture.
 
 ```text
 AI Digital Twin Agent Platform
-        ↓
-Provider Selection
-        ↓
-Model Selection
+│
+├── Presentation Layer
+│   └── Streamlit UI
+│
+├── Application Layer
+│   ├── Agents
+│   ├── Services
+│   ├── Intelligence
+│   ├── Memory Management
+│   ├── Knowledge Management
+│   ├── Conversation Management
+│   ├── Personalization
+│   └── Response Evaluation
+│
+├── Domain Layer
+│   ├── Entities
+│   ├── Interfaces
+│   └── Business Rules
+│
+└── Infrastructure Layer
+    ├── AI Providers
+    ├── Provider Registry
+    ├── JSON Repositories
+    └── Persistence
 ```
 
-The Streamlit presentation layer communicates with application services rather than directly constructing provider clients.
+## Architectural Principles
 
----
+- Single Responsibility Principle.
+- Open/Closed Principle.
+- Liskov Substitution Principle.
+- Interface Segregation Principle.
+- Dependency Inversion Principle.
+- Separation of Concerns.
+- Dependency Injection.
+- Modular design.
 
-# 📁 Project Structure
+# 7. Project Structure
+
+The application is organized around these architectural responsibilities:
 
 ```text
 AI-Digital-Twin-Agent-Platform/
 │
-├── app.py
-│
 ├── app/
-│   ├── __init__.py
-│   │
-│   ├── bootstrap.py
-│   │
-│   ├── config/
-│   │   ├── __init__.py
-│   │   ├── constants.py
-│   │   ├── models.py
-│   │   ├── providers.py
-│   │   ├── settings.py
-│   │   └── validation.py
-│   │
-│   ├── core/
-│   │   ├── __init__.py
-│   │   ├── exceptions.py
-│   │   └── logging.py
+│   ├── application/
+│   │   ├── agents/
+│   │   ├── services/
+│   │   └── container.py
 │   │
 │   ├── domain/
-│   │   ├── __init__.py
 │   │   ├── entities/
-│   │   │   ├── __init__.py
-│   │   │   ├── ai_model.py
-│   │   │   └── ai_provider_config.py
-│   │   │
-│   │   ├── interfaces/
-│   │   │   ├── __init__.py
-│   │   │   ├── ai_provider.py
-│   │   │   └── provider_registry.py
-│   │   │
-│   │   └── services/
-│   │
-│   ├── application/
-│   │   ├── __init__.py
-│   │   ├── container.py
-│   │   ├── agents/
-│   │   └── services/
-│   │       ├── __init__.py
-│   │       ├── ai_service.py
-│   │       └── provider_model_service.py
+│   │   └── interfaces/
 │   │
 │   ├── infrastructure/
-│   │   ├── __init__.py
-│   │   ├── providers/
-│   │   │   ├── __init__.py
-│   │   │   ├── ollama_client.py
-│   │   │   ├── openai_client.py
-│   │   │   ├── anthropic_client.py
-│   │   │   ├── gemini_client.py
-│   │   │   ├── mistral_client.py
-│   │   │   ├── groq_client.py
-│   │   │   ├── cohere_client.py
-│   │   │   ├── deepseek_client.py
-│   │   │   ├── ollama_provider.py
-│   │   │   ├── openai_provider.py
-│   │   │   ├── anthropic_provider.py
-│   │   │   ├── gemini_provider.py
-│   │   │   ├── mistral_provider.py
-│   │   │   ├── groq_provider.py
-│   │   │   ├── cohere_provider.py
-│   │   │   ├── deepseek_provider.py
-│   │   │   └── registry.py
-│   │   │
-│   │   └── storage/
+│   │   ├── persistence/
+│   │   └── providers/
 │   │
 │   └── presentation/
-│       ├── __init__.py
 │       └── pages/
-│           ├── __init__.py
-│           └── home.py
+│
+├── data/
+│   ├── knowledge/
+│   ├── memory/
+│   └── conversations/
 │
 ├── tests/
-│   ├── __init__.py
-│   ├── unit/
-│   │   └── __init__.py
-│   └── integration/
-│       └── __init__.py
-│
-├── docs/
-│   ├── architecture.md
-│   └── phase-0.md
-│
+├── config/
+├── requirements.txt
 ├── .env.example
-├── .gitignore
-├── LICENSE
-├── README.md
-├── pyproject.toml
-└── requirements.txt
+└── README.md
 ```
 
----
+This is a logical architecture overview. Refer to the actual repository tree for the complete file-level structure.
 
-# 🧪 Testing Foundation
-
-A testing structure has been established:
+# 8. Application Workflow
 
 ```text
-tests/
-├── unit/
-└── integration/
+User
+  |
+  v
+Streamlit Application
+  |
+  v
+Provider and Model Selection
+  |
+  v
+Knowledge Ingestion and Retrieval
+  |
+  v
+Memory Management
+  |
+  v
+Intelligence Context Builder
+  |
+  v
+Personalization
+  |
+  v
+Digital Twin Interaction
+  |
+  v
+Selected AI Provider
+  |
+  v
+Response Quality Evaluation
+  |
+  v
+Response Consistency Evaluation
+  |
+  v
+Personalized AI Response
 ```
 
-Pytest configuration is maintained through:
+# 9. Development Roadmap
 
-```text
-pyproject.toml
+The project was developed in five major phases.
+
+| Phase | Name | Status |
+|---|---|---|
+| 0 | General Foundation | Complete |
+| 1 | Knowledge Ingestion Process | Complete |
+| 2 | Intelligence & Memory Process | Complete |
+| 3 | Digital Twin Interaction Process | Complete |
+| 4 | Validation & Advanced Twin Intelligence | Complete |
+
+## Development Cycle
+
+Each phase followed:
+
+**PLAN → DESIGN → IMPLEMENT → TEST → FIX → STABILIZE**
+
+## Phase 0 – General Foundation
+- Modular architecture.
+- SOLID principles.
+- Provider abstraction.
+- ProviderFactory and registry.
+- Dependency injection.
+- Configuration and logging foundation.
+
+## Phase 1 – Knowledge Ingestion
+- Document validation.
+- Document extraction.
+- Chunking and metadata.
+- JSON storage.
+- Knowledge retrieval.
+- Ingestion recovery.
+
+## Phase 2 – Intelligence and Memory
+- Memory entities and repositories.
+- Four memory types.
+- Memory search and consolidation.
+- Intelligence context building.
+- Intelligence Service.
+- Memory Agent.
+
+## Phase 3 – Digital Twin Interaction
+- Conversation entities.
+- JSON conversation repository.
+- Conversation Service.
+- Digital Twin Interaction Agent.
+- Multi-turn conversation support.
+
+## Phase 4 – Validation and Advanced Twin Intelligence
+- Advanced context intelligence.
+- Advanced memory retrieval.
+- Digital Twin personalization.
+- Response quality evaluation.
+- Response consistency evaluation.
+- Integrated application validation.
+- Final stabilization.
+
+# 10. Installation and Configuration
+
+## Prerequisites
+
+- Python 3.11 or later.
+- Git.
+- Ollama for local model usage.
+- API credentials for cloud providers you want to use.
+
+## Clone Repository
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd <YOUR_PROJECT_DIRECTORY>
 ```
 
-Actual test execution is intentionally deferred until the appropriate testing stage.
+## Create Virtual Environment
 
----
-
-# 🧱 SOLID Principles
-
-SOLID is a core architectural requirement.
-
-## Single Responsibility Principle
-
-Each component has a focused responsibility.
-
-Examples:
-
-```text
-Provider Client
-    → API communication
-
-Provider
-    → Provider abstraction
-
-Provider Registry
-    → Provider/model configuration lookup
-
-Provider Factory
-    → Provider construction
-
-AIService
-    → AI generation orchestration
+```bash
+python -m venv venv
 ```
 
-## Open/Closed Principle
+Windows:
 
-The provider factory uses registration rather than a fixed provider creation chain.
-
-New providers can be registered without rewriting the factory.
-
-## Liskov Substitution Principle
-
-Concrete providers implement the common `AIProvider` contract and can be used wherever an `AIProvider` is required.
-
-## Interface Segregation Principle
-
-Domain contracts expose focused interfaces rather than forcing application components to depend on unnecessary functionality.
-
-## Dependency Inversion Principle
-
-Application services depend on domain abstractions.
-
-```text
-Application
-    ↓
-AIProvider
-    ↓
-Concrete Infrastructure
+```bash
+venv\Scripts\activate
 ```
 
-not:
-
-```text
-Application
-    ↓
-OllamaClient
-```
-
----
-
-# 🔄 Phase Roadmap
-
-## Phase 0 — General Foundation
-
-**Status: ✅ COMPLETE**
-
-```text
-Project Definition
-Repository Structure
-Configuration
-Provider Architecture
-30 Model Configuration
-Provider Implementations
-Provider Factory
-Dependency Injection
-Logging
-Exception Handling
-Registry
-Ollama Foundation
-Cloud Provider Clients
-Provider/Model Selection
-Application Container
-Bootstrap
-Streamlit Foundation
-Testing Foundation
-Stabilization
-Documentation
-Final Review
-```
-
----
-
-## Phase 1 — Knowledge Ingestion Process
-
-**Status: ⏳ NEXT**
-
-Planned capabilities:
-
-```text
-Knowledge Domain
-Knowledge Entities
-Knowledge Interfaces
-Document Ingestion
-Text Extraction
-File Processing
-Knowledge Chunking
-Metadata
-Knowledge Storage
-Knowledge Retrieval
-Ingestion Service
-Knowledge Agent
-Application Integration
-Knowledge UI
-Error Handling
-Logging
-Documentation
-Stabilization
-Validation
-```
-
----
-
-## Phase 2 — Intelligence & Memory Process
-
-**Status: ⏳**
-
-Planned focus:
-
-```text
-Memory
-Learning
-Context
-Knowledge Relationships
-Intelligence Services
-Memory Agents
-Long-Term Context
-```
-
----
-
-## Phase 3 — Digital Twin Interaction Process
-
-**Status: ⏳**
-
-Planned focus:
-
-```text
-Digital Twin Identity
-Conversation
-Behavior
-Preferences
-Decision Patterns
-Interactive Agents
-Personalized Responses
-```
-
----
-
-## Phase 4 — Validation & Advanced Twin Intelligence
-
-**Status: ⏳**
-
-Planned focus:
-
-```text
-Advanced Validation
-Twin Evaluation
-Behavioral Consistency
-Advanced Memory
-Advanced Intelligence
-Continuous Improvement
-Production Readiness
-```
-
----
-
-# ▶️ Running the Application
-
-Install dependencies:
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Create the environment file:
+## Environment Configuration
+
+Create a `.env` file based on `.env.example`, if provided.
+
+Configure:
+- Provider API credentials.
+- Ollama base URL.
+- Default provider.
+- Default model.
+- Application-specific settings.
+
+Never commit secrets or API keys.
+
+## Ollama Setup
 
 ```bash
-copy .env.example .env
+ollama pull qwen2.5:1.5b
+ollama serve
 ```
 
-Configure the required environment variables.
-
-Start Streamlit:
+## Start Application
 
 ```bash
-streamlit run app.py
+streamlit run <YOUR_STREAMLIT_ENTRYPOINT.py>
 ```
+
+Use the actual Streamlit entry point in your repository.
+
+# 11. API and Service Overview
+
+The following application services form the core of the platform.
+
+| Service | Responsibility |
+|---|---|
+| AIService | AI provider communication |
+| ProviderFactory | Provider creation |
+| ProviderModelService | Provider/model selection |
+| KnowledgeIngestionService | Document ingestion |
+| KnowledgeRetrievalService | Knowledge retrieval |
+| MemoryService | Memory management |
+| IntelligenceContextBuilder | Context construction |
+| IntelligenceService | AI response generation |
+| ConversationService | Conversation management |
+| DigitalTwinPersonalizationService | Personalization context |
+| ResponseQualityService | Response quality evaluation |
+| ResponseConsistencyService | Repetition and similarity evaluation |
+
+## Main Agents
+
+- KnowledgeAgent.
+- MemoryAgent.
+- DigitalTwinInteractionAgent.
+
+# 12. Knowledge Management
+
+Knowledge ingestion supports:
+
+- PDF.
+- DOCX.
+- TXT.
+- Markdown.
+- CSV.
+
+Processing workflow:
+
+1. Upload document.
+2. Validate document.
+3. Extract content.
+4. Split content into chunks.
+5. Attach metadata.
+6. Persist knowledge.
+7. Retrieve relevant content.
+
+# 13. Memory Management
+
+The platform supports four memory types.
+
+| Memory Type | Purpose |
+|---|---|
+| SHORT_TERM | Temporary information |
+| LONG_TERM | Retained information |
+| EPISODIC | Experiences and events |
+| SEMANTIC | Facts and concepts |
+
+Memory operations:
+
+- Create.
+- Retrieve.
+- Search.
+- Update.
+- Delete.
+- Filter.
+- Consolidate.
+
+Short-term memory consolidation creates long-term memories and removes the original short-term records after successful processing.
+
+# 14. Digital Twin Conversations
+
+Conversation management includes:
+
+- Conversation creation.
+- User messages.
+- Assistant messages.
+- Conversation history.
+- Multi-turn context.
+- Archiving.
+- Deletion.
+- JSON persistence.
+
+The interaction agent combines recent conversation history with knowledge, memory, and the current query.
+
+# 15. Personalization and Intelligence
+
+The Digital Twin uses available stored information to construct personalized context.
+
+Personalization categories:
+
+- Profile.
+- Preferences.
+- Expertise.
+
+The Intelligence Service combines:
+
+1. Current query.
+2. Knowledge context.
+3. Memory context.
+4. Conversation context.
+5. Personalization context.
+
+The selected AI provider generates the response.
+
+Personalization depends on the information available in stored memories. It does not guarantee complete or accurate personal-profile extraction.
+
+# 16. Response Quality and Consistency
+
+## Response Quality
+
+Checks:
+- Empty response.
+- Short response.
+- Repeated sentences.
+
+Returns:
+- Validity status.
+- Quality score.
+- Issues.
+- Suggestions.
+
+## Response Consistency
+
+Checks:
+- Similarity with previous assistant responses.
+- Potential repetition.
+
+Returns:
+- Consistency status.
+- Similarity score.
+- Repeated responses.
+- Warnings.
+
+These are lightweight heuristic checks, not comprehensive factual verification or semantic contradiction detection.
+
+# 17. Data Storage
+
+The application uses JSON-based persistence.
+
+Storage responsibilities include:
+
+- Knowledge records.
+- Knowledge chunks.
+- Memory records.
+- Conversation records.
+- Conversation messages.
+
+The application does not require a relational database for its current storage design.
+
+# 18. Testing and Validation
+
+PyTest is used as the testing framework.
+
+The development process includes:
+- Service-level testing.
+- Repository testing.
+- Agent testing.
+- Integrated application validation.
+- Restart and persistence verification.
+
+The integrated application validation for the completed development roadmap was confirmed by the project owner.
+
+Individual test counts and coverage percentages should be added only after checking the final test results.
+
+# 19. User Guide
+
+1. Start the Streamlit application.
+2. Select an AI provider.
+3. Select an available model.
+4. Upload knowledge documents.
+5. Search ingested knowledge.
+6. Save personal memories.
+7. Manage memory categories.
+8. Create a Digital Twin conversation.
+9. Interact through multiple turns.
+10. Review personalized AI responses.
+
+# 20. Troubleshooting
+
+| Problem | Suggested action |
+|---|---|
+| Ollama connection failure | Check that Ollama is running and the configured URL is correct. |
+| Model unavailable | Pull the model using Ollama or verify the provider's configured model list. |
+| Cloud provider error | Verify API credentials and provider configuration. |
+| Document ingestion failure | Check file type, file size, and extraction dependencies. |
+| Invalid JSON storage | Preserve a backup before attempting recovery. |
+| Conversation loading failure | Check conversation JSON structure and storage path. |
+| Missing Python package | Install dependencies from requirements.txt. |
+| Streamlit startup error | Check the entry point, imports, and environment. |
+
+# 21. Security
+
+Security considerations:
+
+- Keep API keys in environment variables.
+- Never commit `.env` files.
+- Use `.gitignore` for secrets and sensitive data.
+- Protect personal knowledge and memory files.
+- Review data before sharing repository backups.
+- Apply appropriate access controls when deploying beyond a local environment.
+
+# 22. Project Notes and Future Enhancements
+
+The v1.0.0 implementation uses JSON-based storage and lexical retrieval techniques.
+
+Potential future improvements:
+
+- Embedding-based semantic memory retrieval.
+- Advanced semantic relevance scoring.
+- Factual contradiction detection.
+- More sophisticated memory consolidation.
+- Advanced profile extraction.
+- Additional integrations.
+- Production deployment and monitoring.
+
+These are future possibilities, not features claimed as completed in v1.0.0.
+
+# 23. Frequently Asked Questions
+
+**Q1. What is an AI Digital Twin?**
+
+An AI Digital Twin is an AI-powered representation of a user that can use stored knowledge, memories, preferences, and conversation context to provide personalized responses.
+
+**Q2. How many AI providers are supported?**
+
+Eight providers.
+
+**Q3. How many models are configured?**
+
+Thirty models.
+
+**Q4. Does the application support local models?**
+
+Yes. Ollama is supported.
+
+**Q5. Does the application require MySQL?**
+
+No. The current platform uses JSON-based persistence.
+
+**Q6. What memory types are available?**
+
+Short-term, long-term, episodic, and semantic.
+
+**Q7. Does it support multi-turn conversations?**
+
+Yes. Conversation history is persisted and used for contextual interaction.
+
+**Q8. Can the Digital Twin personalize responses?**
+
+Yes. It uses available stored profile, preference, and expertise memories.
+
+# 24. Interview Questions and Answers
+
+**Q1. Why did you use layered architecture?**
+
+To separate responsibilities, improve maintainability, and make the platform extensible.
+
+**Q2. How did you implement multiple AI providers?**
+
+Using provider abstractions, a ProviderFactory, and provider registration.
+
+**Q3. Why use dependency injection?**
+
+To reduce tight coupling and allow services to depend on abstractions and injected dependencies.
+
+**Q4. How is knowledge managed?**
+
+Documents are validated, extracted, chunked, persisted, and retrieved through dedicated services.
+
+**Q5. How does memory consolidation work?**
+
+Short-term memories are converted into long-term memory records and the original short-term records are deleted after successful processing.
+
+**Q6. How does the Digital Twin maintain context?**
+
+It combines relevant knowledge, stored memories, and recent conversation history.
+
+**Q7. How is personalization implemented?**
+
+A dedicated personalization service categorizes available memories into profile, preference, and expertise context.
+
+**Q8. How is response quality evaluated?**
+
+Through deterministic checks for empty responses, short responses, and repeated sentences.
+
+**Q9. How is response consistency evaluated?**
+
+By comparing the new response with previous assistant responses using lexical similarity.
+
+**Q10. Why use JSON storage?**
+
+It provides a lightweight persistence mechanism without requiring a database server.
+
+# 25. Resume Highlights
+
+**AI Digital Twin Agent Platform | Python | Streamlit | Generative AI**
+
+- Developed a multi-provider, multi-model AI Digital Twin platform supporting 8 AI providers and 30 configured models.
+- Designed a modular, layered architecture following SOLID principles and dependency injection.
+- Implemented document ingestion, chunking, metadata management, and knowledge retrieval.
+- Built persistent memory management supporting short-term, long-term, episodic, and semantic memory.
+- Developed multi-turn Digital Twin conversations with persistent JSON-based history.
+- Implemented personalization using stored profile, preference, and expertise context.
+- Integrated response quality and consistency evaluation services.
+- Built a unified Streamlit application integrating knowledge, memory, intelligence, and conversation workflows.
+
+# 26. Contributing
+
+Contributions should preserve the existing architectural boundaries and design principles.
+
+Recommended workflow:
+
+1. Fork the repository.
+2. Create a feature branch.
+3. Follow existing coding conventions.
+4. Implement changes within the appropriate layer.
+5. Run relevant tests.
+6. Submit a pull request with a clear description.
+
+# 27. Code of Conduct
+
+Contributors are expected to communicate respectfully, collaborate professionally, and provide constructive feedback.
+
+Harassment, discrimination, and abusive behavior are not acceptable.
+
+# 28. Changelog and Release Notes
+
+## v1.0.0 – Initial Complete Platform
+
+Development roadmap completed:
+
+- General Foundation.
+- Knowledge Ingestion.
+- Intelligence and Memory.
+- Digital Twin Interaction.
+- Validation and Advanced Twin Intelligence.
+
+The integrated application workflow was confirmed by the project owner.
+
+# 29. Screenshots
+
+Add actual application screenshots to your repository and reference them here.
+
+Suggested screenshot categories:
+
+- Application Home.
+- Provider and Model Selection.
+- Knowledge Ingestion.
+- Knowledge Retrieval.
+- Memory Management.
+- Digital Twin Conversation.
+- Personalization.
+- Response Evaluation.
+
+## 📸 Application Screenshots
+
+Explore the **AI Digital Twin Agent Platform** through the following application screenshots.
+
+### 1. AI Provider and Model Configuration
+
+Select from 8 AI providers and 30 configured models.
+
+![AI Provider Configuration](screenshots/providers-models.png)
+
+### 2. Knowledge Management
+
+Upload documents in PDF, DOCX, TXT, Markdown, and CSV formats.
+
+![Knowledge Ingestion](screenshots/ingestion.png)
+
+### 3. Knowledge Search
+
+Search the ingested knowledge base.
+
+![Knowledge Search](screenshots/search.png)
+
+### 4. Memory Management
+
+Create and save digital twin memories with different memory types.
+
+![Memory Management](screenshots/memory.png)
+
+### 5. View Stored Memories
+
+View saved memories and filter them by memory type.
+
+![View Memories](screenshots/viewmem.png)
+
+### 6. Search Memories
+
+Search previously stored digital twin memories.
+
+![Search Memories](screenshots/searchmem.png)
+
+### 7. Digital Twin Intelligence
+
+Generate AI responses using stored knowledge and memories.
+
+![Digital Twin Intelligence](screenshots/digitaltwinintelligence.png)
+
+### 8. Digital Twin Conversation
+
+Create and manage conversations with your digital twin.
+
+![Digital Twin Conversation](screenshots/digitaltwinconversations.png)
+
+### 9. Create New Conversation
+
+Start a new conversation with a custom conversation title.
+
+![New Conversation](screenshots/newconversationcreated.png)
+
+### 10. Chat History
+
+View and manage conversation history, including archiving and deleting conversations.
+
+![Chat History](screenshots/chathistory.png)
+
+# 30. License and Author
+
+**Project:** AI Digital Twin Agent Platform  
+**Release:** v1.0.0  
+**Author:** Project Developer
+
+Add your selected open-source license before publishing or distributing the project.
 
 ---
 
-# 🔒 Security
-
-Never commit secrets.
-
-The following should remain local:
-
-```text
-.env
-API keys
-Access tokens
-Private credentials
-```
-
-`.env.example` contains configuration placeholders only.
-
-If an API key is ever exposed publicly, revoke or rotate it immediately.
-
----
-
-# 📦 Technology Stack
-
-```text
-Language
-Python 3.11+
-
-UI
-Streamlit
-
-Configuration
-python-dotenv
-
-HTTP
-Requests
-
-Testing
-Pytest
-
-AI Providers
-Ollama
-OpenAI
-Anthropic
-Gemini
-Mistral
-Groq
-Cohere
-DeepSeek
-```
-
----
-
-# 📌 Development Principles
-
-The project follows these principles:
-
-```text
-SOLID
-Clean Architecture
-Dependency Injection
-Interface-driven design
-Separation of concerns
-Provider abstraction
-Configuration-driven architecture
-Secure credential handling
-Incremental development
-Testability
-Maintainability
-Extensibility
-```
-
----
-
-# 🏁 Phase 0 Completion Summary
-
-Phase 0 establishes the complete technical foundation required for the Digital Twin platform.
-
-```text
-8 AI Providers
-        +
-30 Configured Models
-        +
-Provider Abstraction
-        +
-Provider Registry
-        +
-Provider Factory
-        +
-Dependency Injection
-        +
-Application Container
-        +
-Configuration Validation
-        +
-Logging
-        +
-Exception Architecture
-        +
-Streamlit Foundation
-        +
-Testing Foundation
-        +
-Documentation
-        ↓
-Phase 0 COMPLETE ✅
-```
-
-The project is now ready to move into the **Knowledge Ingestion Process**.
-
----
-
-# 📅 Next Development Step
-
-```text
-PHASE 1
-Knowledge Ingestion Process
-        ↓
-1.1 Knowledge Domain Design
-```
-
-Phase 1 will begin only after the Phase 0 foundation is fully reviewed and accepted.
-
----
-
-# 👨‍💻 Project
-
-**AI Digital Twin Agent Platform**
-
-> Building an evolving AI representation through knowledge, memory, intelligence, and interaction.
+<p align="center">
+  <strong>AI Digital Twin Agent Platform</strong>
+  <br/>
+  Building an intelligent, context-aware and personalized digital representation.
+</p>

@@ -5,6 +5,13 @@ from app.application.services.provider_model_service import (
     ProviderModelService,
 )
 
+from app.application.services.response_quality_service import (
+    ResponseQualityService,
+)
+from app.application.services.response_consistency_service import (
+    ResponseConsistencyService,
+)
+
 from app.application.agents.knowledge_agent import KnowledgeAgent
 from app.application.agents.memory_agent import MemoryAgent
 from app.application.agents.digital_twin_interaction_agent import (
@@ -27,6 +34,9 @@ from app.application.services.intelligence_context_builder import (
 )
 from app.application.services.intelligence_service import IntelligenceService
 from app.application.services.conversation_service import ConversationService
+from app.application.services.digital_twin_personalization_service import (
+    DigitalTwinPersonalizationService,
+)
 
 from app.infrastructure.persistence import JSONStorage
 from app.infrastructure.persistence.repositories.json_memory_repository import (
@@ -114,6 +124,16 @@ class ApplicationContainer:
         )
 
         # ----------------------------------
+        # Phase 4.3: Digital Twin Personalization
+        # ----------------------------------
+
+        self._digital_twin_personalization_service = (
+            DigitalTwinPersonalizationService(
+                memory_service=self._memory_service,
+            )
+        )
+
+        # ----------------------------------
         # Intelligence Context Builder
         # ----------------------------------
 
@@ -134,6 +154,16 @@ class ApplicationContainer:
 
         self._conversation_service = ConversationService(
             repository=self._conversation_repository,
+        )
+
+        # ----------------------------------
+        # Phase 4.4: Response Quality
+        # ----------------------------------
+
+        self._response_quality_service = ResponseQualityService()
+
+        self._response_consistency_service = (
+            ResponseConsistencyService()
         )
 
     # ==================================
@@ -235,6 +265,16 @@ class ApplicationContainer:
         return self._memory_service
 
     # ==================================
+    # Phase 4.3: Personalization Services
+    # ==================================
+
+    def create_digital_twin_personalization_service(
+        self,
+    ) -> DigitalTwinPersonalizationService:
+
+        return self._digital_twin_personalization_service
+
+    # ==================================
     # Phase 2: Intelligence Services
     # ==================================
 
@@ -245,15 +285,21 @@ class ApplicationContainer:
         return self._intelligence_context_builder
 
     def create_intelligence_service(
-        self,
-        provider_name: str,
+            self,
+            provider_name: str,
     ) -> IntelligenceService:
-
         ai_service = self.create_ai_service(provider_name)
 
         return IntelligenceService(
             ai_service=ai_service,
             context_builder=self._intelligence_context_builder,
+            personalization_service=(
+                self._digital_twin_personalization_service
+            ),
+            response_quality_service=self._response_quality_service,
+            response_consistency_service=(
+                self._response_consistency_service
+            ),
         )
 
     # ==================================
