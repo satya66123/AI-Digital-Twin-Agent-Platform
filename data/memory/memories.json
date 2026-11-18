@@ -1,0 +1,42 @@
+[
+    {
+        "memory_id": "88fc550c-e721-4788-b17e-0f315e1e7531",
+        "content": "Applied AI bridges the gap between AI theory and real-world impact.",
+        "memory_type": "short_term",
+        "metadata": {},
+        "created_at": "2026-11-18T02:46:03.444103+00:00",
+        "updated_at": "2026-11-18T02:46:03.444103+00:00"
+    },
+    {
+        "memory_id": "be53fcc2-93e7-470c-b9d2-a0d3a76c4a85",
+        "content": "Applied AI bridges the gap between AI theory and real-world impact.\nApplied Machine Learning focuses on solving real-world problems using machine learning models. Instead of only learning formulas, we apply ML techniques to real data, train models, evaluate them, and make predictions that help in decision-making.",
+        "memory_type": "long_term",
+        "metadata": {},
+        "created_at": "2026-11-18T02:47:03.974845+00:00",
+        "updated_at": "2026-11-18T02:47:03.974845+00:00"
+    },
+    {
+        "memory_id": "f33523c1-1109-4c3d-a1d1-f7a3b78eb34c",
+        "content": "I am learning Generative AI and Python.",
+        "memory_type": "short_term",
+        "metadata": {},
+        "created_at": "2026-11-18T02:53:36.656161+00:00",
+        "updated_at": "2026-11-18T02:53:36.656161+00:00"
+    },
+    {
+        "memory_id": "bbad5a60-b98c-4e10-90ca-d9742248bad9",
+        "content": "I work on AI Digital Twin Agent Platform projects.",
+        "memory_type": "long_term",
+        "metadata": {},
+        "created_at": "2026-11-18T02:53:57.314324+00:00",
+        "updated_at": "2026-11-18T02:53:57.314324+00:00"
+    },
+    {
+        "memory_id": "f91122bb-e398-4e5a-bc41-96bb973d7b37",
+        "content": "Send: My name is Satya and I am a Python developer.",
+        "memory_type": "short_term",
+        "metadata": {},
+        "created_at": "2026-11-18T05:27:42.450324+00:00",
+        "updated_at": "2026-11-18T05:27:42.450324+00:00"
+    }
+]

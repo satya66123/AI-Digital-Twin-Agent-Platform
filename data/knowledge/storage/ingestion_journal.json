@@ -1,0 +1,34 @@
+[
+    {
+        "ingestion_id": "2feb360b-ed65-4ecf-98c0-77b63d19a340",
+        "source_id": "2c855767-a17a-44d2-a474-31dbb654bac4",
+        "knowledge_item_id": "fda077e2-58b6-4530-bc22-40d15c29c209",
+        "chunk_ids": [
+            "12cc25bf-27e6-4e6a-886f-3e4a89a75ed1",
+            "a08595d9-cdb6-467b-be56-7276aa305738",
+            "ac941da1-cb2d-42c5-a22a-ae038935ddf6",
+            "fc8a7bcc-6361-4c28-9feb-fb5dece2c1f3",
+            "900b7884-81fc-4116-85ed-724031da0d57",
+            "45904239-50c5-4c7b-98dc-64aef72d3119",
+            "a0314b01-98dd-4096-bc60-17b56bfad22b",
+            "d35afd8e-bf52-4c9d-9c69-096b78c8bb8a",
+            "7e84b10c-4803-43ed-b5e8-817e3f2a1802",
+            "345de05e-9101-4ae9-aa0c-35c3db88b733",
+            "d87e3067-2c56-4ea9-b888-4eb05aafe906",
+            "31b4ae92-119e-4ab4-80ec-02ab2ff27380",
+            "18d1c198-3c52-420d-ae03-e91e226dd03a",
+            "bb27b2fe-fcb9-485f-8046-efe9600a1d31",
+            "2172d91d-bad2-4ec1-a44a-d2116bc93dea",
+            "24b33282-0078-4534-ac7d-dff2e5c25c8c",
+            "32fbcc3a-af18-4b28-8af4-eac2e8910353",
+            "02c0b517-12d4-4f7a-8a6e-1a5269b5b7a0",
+            "608260ce-54af-4a1b-af30-3ab89281b9f2",
+            "f096c1ea-bf4a-444b-bcf5-dd6d3e5b2371"
+        ],
+        "stage": "completed",
+        "status": "completed",
+        "created_at": "2026-11-18T01:44:03.607077+00:00",
+        "updated_at": "2026-11-18T01:44:04.623362+00:00",
+        "error": null
+    }
+]
