@@ -17,7 +17,8 @@ class KnowledgeLogger:
             "Knowledge ingestion started",
             extra={
                 "event": "knowledge_ingestion_started",
-                "filename": filename,
+                "document_filename": filename,
+
             },
         )
 
@@ -32,7 +33,7 @@ class KnowledgeLogger:
             "Knowledge ingestion completed",
             extra={
                 "event": "knowledge_ingestion_completed",
-                "filename": filename,
+                "document_filename": filename,
                 "source_id": source_id,
                 "knowledge_item_id": item_id,
                 "chunk_count": chunk_count,
@@ -48,7 +49,7 @@ class KnowledgeLogger:
             "Knowledge ingestion failed",
             extra={
                 "event": "knowledge_ingestion_failed",
-                "filename": filename,
+                "document_filename": filename,
                 "error_type": type(error).__name__,
             },
             exc_info=True,
@@ -64,7 +65,7 @@ class KnowledgeLogger:
             "File processing completed",
             extra={
                 "event": "file_processing_completed",
-                "filename": filename,
+                "document_filename": filename,
                 "file_size": file_size,
                 "checksum": checksum,
             },
@@ -79,7 +80,7 @@ class KnowledgeLogger:
             "Document text extraction completed",
             extra={
                 "event": "text_extraction_completed",
-                "filename": filename,
+                "document_filename": filename,
                 "character_count": character_count,
             },
         )

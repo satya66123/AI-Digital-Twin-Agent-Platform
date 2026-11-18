@@ -5,6 +5,8 @@ from app.domain.entities.knowledge_item import KnowledgeItem
 from app.domain.entities.knowledge_metadata import KnowledgeMetadata
 from app.domain.entities.knowledge_source import KnowledgeSource
 from app.domain.entities.knowledge_type import KnowledgeType
+from app.domain.entities.memory import Memory
+from app.domain.entities.memory_type import MemoryType
 
 __all__ = [
     "AIModel",
@@ -14,4 +16,6 @@ __all__ = [
     "KnowledgeMetadata",
     "KnowledgeSource",
     "KnowledgeType",
+    "Memory",
+    "MemoryType",
 ]

@@ -22,7 +22,16 @@ from .knowledge_ingestion_service import (
     KnowledgeIngestionService,
     KnowledgeIngestionResult,
 )
+from app.application.services.memory_service import MemoryService
 
+from app.application.services.intelligence_context_builder import (
+    IntelligenceContext,
+    IntelligenceContextBuilder,
+)
+from app.application.services.intelligence_service import (
+    IntelligenceService,
+    IntelligenceResponse,
+)
 __all__ = [
     "AIService",
     "ProviderFactory",
@@ -37,5 +46,9 @@ __all__ = [
     "KnowledgeSearchResult",
     "KnowledgeIngestionService",
     "KnowledgeIngestionResult",
-
+    "MemoryService",
+    "IntelligenceContext",
+    "IntelligenceContextBuilder",
+    "IntelligenceService",
+    "IntelligenceResponse",
 ]
